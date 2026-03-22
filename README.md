@@ -143,6 +143,9 @@ Edit `config/config.yaml` and set `headless: true`.
 - **pytest-html** generates a self-contained HTML report at `reports/test_report.html` after each run.
 
 ---
+## Result
+
+ ![image alt]()
 
 ## 📦 Dependencies
 
