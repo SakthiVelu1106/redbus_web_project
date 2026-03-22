@@ -1,0 +1,23 @@
+# ============================================================
+# RedBus Automation Framework - Configuration File
+# ============================================================
+
+application:
+  base_url: "https://www.redbus.in"
+  browser: "chromium"              # Options: chromium, firefox, webkit
+  channel: "chrome"               # Use real Chrome instead of bundled Chromium
+  headless: false                  # false = visible browser window
+  slow_mo: 150                     # ms between actions — enough for RedBus React inputs
+  timeout: 30000                   # Default timeout in ms
+  viewport_width: 1440
+  viewport_height: 900
+
+test_data:
+  source_city: "Hyderabad"
+  destination_city: "Bangalore"
+  travel_date: "30 Mar 2026"  # Format: DD Mon YYYY
+  offer_url: "https://www.redbus.in/offers/bus-offers"
+
+reports:
+  screenshot_dir: "screenshots"
+  report_dir: "reports"
