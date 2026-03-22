@@ -1,0 +1,12 @@
+{
+  "pythonVersion": "3.13",
+  "venvPath": ".",
+  "venv": ".venv",
+  "extraPaths": ["."],
+  "include": [
+    "pages",
+    "tests",
+    "utils",
+    "config"
+  ]
+}

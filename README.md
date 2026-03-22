@@ -1,17 +1,12 @@
-# ⚙️ RedBus Playwright Automation Framework
+# 🚌 RedBus Playwright Automation Framework
 
-
-Playwright (Python) automation framework for RedBus using Page Object Model with scalable design.
-Handles real-world challenges like popups, dynamic seat selection, and generates HTML reports.
-```
-
-*A production-grade, scalable test automation framework for [redbus.in](https://www.redbus.in) built with **Playwright + Python + Pytest**.*
+A production-grade, scalable test automation framework for [redbus.in](https://www.redbus.in) built with **Playwright + Python + Pytest**.
 
 ---
 
 ## 📁 Project Structure
 
-
+```
 redbus_web_project/
 │
 ├── config/
@@ -21,9 +16,9 @@ redbus_web_project/
 │   ├── __init__.py
 │   ├── base_page.py              # Abstract base with shared helpers
 │   ├── home_page.py              # Home / search form page
-│   ├── search_results_page.py    # Bus results listing page
-│   ├── bus_details_page.py       # Seat selection panel
-│   └── offers_page.py            # Offers / promotions page
+│   ├── search_results_page.py   # Bus results listing page
+│   ├── bus_details_page.py      # Seat selection panel
+│   └── offers_page.py           # Offers / promotions page
 │
 ├── tests/                        # Pytest test cases
 │   ├── __init__.py
@@ -53,24 +48,22 @@ redbus_web_project/
 ## ✅ Prerequisites
 
 | Requirement | Version |
-| ----------- | ------- |
-| Python      | 3.11+   |
-| pip         | Latest  |
-| Git         | Any     |
+|---|---|
+| Python | 3.11+ |
+| pip | Latest |
+| Git | Any |
 
 ---
 
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/SakthiVelu1106/redbus_web_project.git
 cd redbus_web_project
 ```
 
 ### 2. Create a virtual environment (recommended)
-
 ```bash
 python -m venv venv
 # Windows
@@ -80,13 +73,11 @@ source venv/bin/activate
 ```
 
 ### 3. Install Python dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 4. Install Playwright browsers
-
 ```bash
 playwright install chromium
 ```
@@ -96,75 +87,66 @@ playwright install chromium
 ## ▶️ Running Tests
 
 ### Run all 5 tests (generates HTML report automatically)
-
 ```bash
 python -m pytest tests/ -v
 ```
 
 ### Run a single test
-
 ```bash
 python -m pytest tests/test_TC01_search.py -v
 ```
 
 ### Run with a custom report path
-
 ```bash
 python -m pytest tests/ -v --html=reports/my_report.html --self-contained-html
 ```
 
 ### Run in headless mode (no visible browser)
-
 Edit `config/config.yaml` and set `headless: true`.
 
 ---
 
 ## 🧪 Test Cases
 
-| ID   | Test File                     | Scenario                                               |
-| ---- | ----------------------------- | ------------------------------------------------------ |
-| TC01 | `test_TC01_search.py`         | Search for a bus — verify URL navigates to results     |
-| TC02 | `test_TC02_search_results.py` | Validate result count label + bus cards + names        |
-| TC03 | `test_TC03_filters.py`        | Apply AC filter — verify results update                |
-| TC04 | `test_TC04_bus_details.py`    | Click View Seats — verify seat panel + available seats |
-| TC05 | `test_TC05_offers.py`         | Navigate to Offers page — validate title + content     |
+| ID | Test File | Scenario |
+|---|---|---|
+| TC01 | `test_TC01_search.py` | Search for a bus — verify URL navigates to results |
+| TC02 | `test_TC02_search_results.py` | Validate result count label + bus cards + names |
+| TC03 | `test_TC03_filters.py` | Apply AC filter — verify results update |
+| TC04 | `test_TC04_bus_details.py` | Click View Seats — verify seat panel + available seats |
+| TC05 | `test_TC05_offers.py` | Navigate to Offers page — validate title + content |
 
 ---
 
 ## 🏗️ Framework Architecture
 
 ### Page Object Model (POM)
-
-* All **element locators** are encapsulated inside page classes — never in test files.
-* `BasePage` provides reusable helpers (`click`, `fill`, `wait_for_visible`, etc.).
-* Each page class maps to a specific screen/context of the application.
+- All **element locators** are encapsulated inside page classes — never in test files.
+- `BasePage` provides reusable helpers (`click`, `fill`, `wait_for_visible`, etc.).
+- Each page class maps to a specific screen/context of the application.
 
 ### Configuration
-
-* All environment variables are stored in **`config/config.yaml`**.
-* The `config_reader.py` utility reads and caches the config via `lru_cache`.
-* No hardcoded URLs, browser names, or test data appear in test files.
+- All environment variables are stored in **`config/config.yaml`**.
+- The `config_reader.py` utility reads and caches the config via `lru_cache`.
+- No hardcoded URLs, browser names, or test data appear in test files.
 
 ### Logging
-
-* Colored console logs via `colorlog`.
-* Log levels: DEBUG (grey/cyan), INFO (green), WARNING (yellow), ERROR (red).
-* Each module gets its own named logger via `get_logger(name)`.
+- Colored console logs via `colorlog`.
+- Log levels: DEBUG (grey/cyan), INFO (green), WARNING (yellow), ERROR (red).
+- Each module gets its own named logger via `get_logger(name)`.
 
 ### Screenshot on Failure
-
-* A `pytest_runtest_makereport` hook in `conftest.py` automatically captures a full-page screenshot whenever any test fails.
-* Screenshots are saved to the `screenshots/` directory with a timestamp.
+- A `pytest_runtest_makereport` hook in `conftest.py` automatically captures a full-page screenshot whenever any test fails.
+- Screenshots are saved to the `screenshots/` directory with a timestamp.
 
 ### Reports
-
-* **pytest-html** generates a self-contained HTML report at `reports/test_report.html` after each run.
+- **pytest-html** generates a self-contained HTML report at `reports/test_report.html` after each run.
 
 ---
 
 ## 📦 Dependencies
 
-```text
+```
 playwright==1.42.0
 pytest==8.1.1
 pytest-html==4.1.1
@@ -177,14 +159,14 @@ colorlog==6.8.2
 
 ## 🌟 Key Framework Features
 
-* ✅ **Page Object Model** — clean separation of locators and test logic
-* ✅ **External configuration** — `config.yaml` for all environment settings
-* ✅ **Auto-waiting locators** — Playwright's built-in waits used throughout
-* ✅ **Colored logging** — per-module, info/error levels
-* ✅ **Screenshot on failure** — automatic via pytest hook
-* ✅ **HTML report** — generated automatically by pytest-html
-* ✅ **Session-scoped browser** — one browser launch per test session (fast)
-* ✅ **Function-scoped page** — fresh context + page per test (isolated)
+- ✅ **Page Object Model** — clean separation of locators and test logic
+- ✅ **External configuration** — `config.yaml` for all environment settings
+- ✅ **Auto-waiting locators** — Playwright's built-in waits used throughout
+- ✅ **Colored logging** — per-module, info/error levels
+- ✅ **Screenshot on failure** — automatic via pytest hook
+- ✅ **HTML report** — generated automatically by pytest-html
+- ✅ **Session-scoped browser** — one browser launch per test session (fast)
+- ✅ **Function-scoped page** — fresh context + page per test (isolated)
 
 ---
 
