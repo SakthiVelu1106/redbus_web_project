@@ -4,6 +4,7 @@ Handles real-world challenges like popups, dynamic seat selection, and generates
 A production-grade, scalable test automation framework for [redbus.in](https://www.redbus.in) built with **Playwright + Python + Pytest.
 
 📁 Project Structure
+
 redbus_web_project/
 │
 ├── config/
@@ -13,9 +14,9 @@ redbus_web_project/
 │   ├── __init__.py
 │   ├── base_page.py              # Abstract base with shared helpers
 │   ├── home_page.py              # Home / search form page
-│   ├── search_results_page.py   # Bus results listing page
-│   ├── bus_details_page.py      # Seat selection panel
-│   └── offers_page.py           # Offers / promotions page
+│   ├── search_results_page.py    # Bus results listing page
+│   ├── bus_details_page.py       # Seat selection panel
+│   └── offers_page.py            # Offers / promotions page
 │
 ├── tests/                        # Pytest test cases
 │   ├── __init__.py
@@ -38,6 +39,8 @@ redbus_web_project/
 ├── pytest.ini                    # Pytest settings & default CLI flags
 ├── requirements.txt              # Python dependencies
 └── .gitignore
+
+
 
  ✅ Prerequisites
 
