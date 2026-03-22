@@ -1,9 +1,16 @@
-⚙️ RedBus Playwright Automation Framework
+# ⚙️ RedBus Playwright Automation Framework
+
+
 Playwright (Python) automation framework for RedBus using Page Object Model with scalable design.
 Handles real-world challenges like popups, dynamic seat selection, and generates HTML reports.
-A production-grade, scalable test automation framework for [redbus.in](https://www.redbus.in) built with **Playwright + Python + Pytest.
+```
 
-📁 Project Structure
+*A production-grade, scalable test automation framework for [redbus.in](https://www.redbus.in) built with **Playwright + Python + Pytest**.*
+
+---
+
+## 📁 Project Structure
+
 
 redbus_web_project/
 │
@@ -39,10 +46,11 @@ redbus_web_project/
 ├── pytest.ini                    # Pytest settings & default CLI flags
 ├── requirements.txt              # Python dependencies
 └── .gitignore
+```
 
+---
 
-
- ✅ Prerequisites
+## ✅ Prerequisites
 
 | Requirement | Version |
 | ----------- | ------- |
@@ -52,51 +60,66 @@ redbus_web_project/
 
 ---
 
-⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 
-1. Clone the repository
+### 1. Clone the repository
 
-
+```bash
 git clone https://github.com/SakthiVelu1106/redbus_web_project.git
 cd redbus_web_project
+```
 
-2. Create a virtual environment (recommended)
+### 2. Create a virtual environment (recommended)
+
+```bash
 python -m venv venv
-Windows
+# Windows
 venv\Scripts\activate
-macOS / Linux
+# macOS / Linux
 source venv/bin/activate
+```
 
-3. Install Python dependencies
+### 3. Install Python dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-4. Install Playwright browsers
-playwright install chromium.
+### 4. Install Playwright browsers
 
-▶️ Running Tests
+```bash
+playwright install chromium
+```
 
-run all 5 tests (generates HTML report automatically)
+---
 
+## ▶️ Running Tests
 
+### Run all 5 tests (generates HTML report automatically)
+
+```bash
 python -m pytest tests/ -v
+```
 
-
-Run a single test
+### Run a single test
 
 ```bash
 python -m pytest tests/test_TC01_search.py -v
+```
 
-Run with a custom report path
+### Run with a custom report path
 
+```bash
 python -m pytest tests/ -v --html=reports/my_report.html --self-contained-html
+```
 
-Run in headless mode (no visible browser)
+### Run in headless mode (no visible browser)
 
 Edit `config/config.yaml` and set `headless: true`.
 
+---
 
-
- 🧪 Test Cases
+## 🧪 Test Cases
 
 | ID   | Test File                     | Scenario                                               |
 | ---- | ----------------------------- | ------------------------------------------------------ |
@@ -108,40 +131,40 @@ Edit `config/config.yaml` and set `headless: true`.
 
 ---
 
-🏗️ Framework Architecture
+## 🏗️ Framework Architecture
 
-Page Object Model (POM)
+### Page Object Model (POM)
 
 * All **element locators** are encapsulated inside page classes — never in test files.
 * `BasePage` provides reusable helpers (`click`, `fill`, `wait_for_visible`, etc.).
 * Each page class maps to a specific screen/context of the application.
 
- configuration
+### Configuration
 
 * All environment variables are stored in **`config/config.yaml`**.
 * The `config_reader.py` utility reads and caches the config via `lru_cache`.
 * No hardcoded URLs, browser names, or test data appear in test files.
 
-Logging
+### Logging
 
 * Colored console logs via `colorlog`.
 * Log levels: DEBUG (grey/cyan), INFO (green), WARNING (yellow), ERROR (red).
 * Each module gets its own named logger via `get_logger(name)`.
 
-Screenshot on Failure
+### Screenshot on Failure
 
 * A `pytest_runtest_makereport` hook in `conftest.py` automatically captures a full-page screenshot whenever any test fails.
 * Screenshots are saved to the `screenshots/` directory with a timestamp.
 
-Reports
+### Reports
 
-**pytest-html** generates a self-contained HTML report at `reports/test_report.html` after each run.
+* **pytest-html** generates a self-contained HTML report at `reports/test_report.html` after each run.
 
 ---
 
-📦 Dependencies
+## 📦 Dependencies
 
-
+```text
 playwright==1.42.0
 pytest==8.1.1
 pytest-html==4.1.1
@@ -152,20 +175,20 @@ colorlog==6.8.2
 
 ---
 
-🌟 Key Framework Features
+## 🌟 Key Framework Features
 
-✅ **Page Object Model** — clean separation of locators and test logic
-✅ **External configuration** — `config.yaml` for all environment settings
-✅ **Auto-waiting locators** — Playwright's built-in waits used throughout
-✅ **Colored logging** — per-module, info/error levels
-✅ **Screenshot on failure** — automatic via pytest hook
-✅ **HTML report** — generated automatically by pytest-html
-✅ **Session-scoped browser** — one browser launch per test session (fast)
-✅ **Function-scoped page** — fresh context + page per test (isolated)
+* ✅ **Page Object Model** — clean separation of locators and test logic
+* ✅ **External configuration** — `config.yaml` for all environment settings
+* ✅ **Auto-waiting locators** — Playwright's built-in waits used throughout
+* ✅ **Colored logging** — per-module, info/error levels
+* ✅ **Screenshot on failure** — automatic via pytest hook
+* ✅ **HTML report** — generated automatically by pytest-html
+* ✅ **Session-scoped browser** — one browser launch per test session (fast)
+* ✅ **Function-scoped page** — fresh context + page per test (isolated)
 
 ---
 
-🤝 Contributing
+## 🤝 Contributing
 
 1. Fork the repo
 2. Create a feature branch: `git checkout -b feature/my-feature`
@@ -174,4 +197,4 @@ colorlog==6.8.2
 
 ---
 
-Framework built for the RedBus automation assignment using Playwright + Python.
+*Framework built for the RedBus automation assignment using Playwright + Python.*
