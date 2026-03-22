@@ -145,7 +145,7 @@ Edit `config/config.yaml` and set `headless: true`.
 ---
 ## Result
 
- ![image alt]()
+ ![image alt](https://github.com/SakthiVelu1106/redbus_web_project/blob/8664959c52437ece3818b09d7ca2c9fea386c237/1result.png)
 
 ## 📦 Dependencies
 
